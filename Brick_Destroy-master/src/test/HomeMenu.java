@@ -8,6 +8,7 @@
 package test;
 
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -15,22 +16,22 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 
 public class HomeMenu extends JComponent implements MouseListener, MouseMotionListener {
 
-    private static final String GREETINGS = "Welcome to:";
-    private static final String GAME_TITLE = "Brick Destroy";
-    private static final String CREDITS = "Version 0.1";
+    BufferedImage BG_IMAGE;
+    BufferedImage LOGO;
+
+
     private static final String START_TEXT = "Start";
     private static final String EXIT_TEXT = "Exit";
-
-    private static final Color BG_COLOR = new Color(255,253,208);// cream
-    private static final Color BORDER_COLOR = new Color(200,8,21); //Venetian Red
-    private static final Color DASH_BORDER_COLOR = new  Color(255, 216, 0);//school bus yellow
-    private static final Color TEXT_COLOR = new Color(16, 52, 166);//egyptian blue
-    private static final Color CLICKED_BUTTON_COLOR = BG_COLOR.brighter();
-    private static final Color CLICKED_TEXT = Color.WHITE;
+    
+    private static final Color TEXT_COLOR = Color.WHITE;
+    private static final Color CLICKED_BUTTON_COLOR = new Color(16, 52, 166);
+    private static final Color CLICKED_TEXT = new Color(16, 52, 166);
     private static final int BORDER_SIZE = 5;
     private static final float[] DASHES = {12,6};
 
@@ -95,7 +96,7 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     public void drawMenu(Graphics2D g2d){
 
-        drawContainer(g2d);
+        drawBackground(g2d);
 
         /*
         all the following method calls need a relative
@@ -120,56 +121,75 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setColor(prevColor);
     }
 
-    private void drawContainer(Graphics2D g2d){
-        Color prev = g2d.getColor();
+    private void drawBackground(Graphics2D g2d){
 
-        g2d.setColor(BG_COLOR);
-        g2d.fill(menuFace);
 
-        Stroke tmp = g2d.getStroke();
+        try{
+            BG_IMAGE= ImageIO.read(getClass().getResource("/resources/brickwall.jpg"));
+        }catch(IOException e){e.printStackTrace();}
+        catch(Exception e){e.printStackTrace();}
 
-        g2d.setStroke(borderStoke_noDashes);
-        g2d.setColor(DASH_BORDER_COLOR);
-        g2d.draw(menuFace);
+        g2d.drawImage(BG_IMAGE, 0, 0, null);
 
-        g2d.setStroke(borderStoke);
-        g2d.setColor(BORDER_COLOR);
-        g2d.draw(menuFace);
 
-        g2d.setStroke(tmp);
 
-        g2d.setColor(prev);
+//        Color prev = g2d.getColor();
+//
+//        g2d.setColor(BG_COLOR);
+//        g2d.fill(menuFace);
+//
+//        Stroke tmp = g2d.getStroke();
+//
+//        g2d.setStroke(borderStoke_noDashes);
+//        g2d.setColor(DASH_BORDER_COLOR);
+//        g2d.draw(menuFace);
+//
+//        g2d.setStroke(borderStoke);
+//        g2d.setColor(BORDER_COLOR);
+//        g2d.draw(menuFace);
+//
+//        g2d.setStroke(tmp);
+//
+//        g2d.setColor(prev);
     }
 
     private void drawText(Graphics2D g2d){
+        try{
+            LOGO= ImageIO.read(getClass().getResource("/resources/logo.png"));
+        }catch(IOException e){e.printStackTrace();}
+        catch(Exception e){e.printStackTrace();}
+
+
 
         g2d.setColor(TEXT_COLOR);
 
-        FontRenderContext frc = g2d.getFontRenderContext();
+//        FontRenderContext frc = g2d.getFontRenderContext();
+//
+//        Rectangle2D greetingsRect = greetingsFont.getStringBounds(GREETINGS,frc);
+//        Rectangle2D gameTitleRect = gameTitleFont.getStringBounds(GAME_TITLE,frc);
+//        Rectangle2D creditsRect = creditsFont.getStringBounds(CREDITS,frc);
+//
+//        int sX,sY;
+//
+//        sX = (int)(menuFace.getWidth() - greetingsRect.getWidth()) / 2;
+//        sY = (int)(menuFace.getHeight() / 4);
+//
+//        g2d.setFont(greetingsFont);
+//        g2d.drawString(GREETINGS,sX,sY);
+//
+//        sX = (int)(menuFace.getWidth() - gameTitleRect.getWidth()) / 2;
+//        sY += (int) gameTitleRect.getHeight() * 1.1;//add 10% of String height between the two strings
+//
+//        g2d.setFont(gameTitleFont);
+//        g2d.drawString(GAME_TITLE,sX,sY);
+//
+//        sX = (int)(menuFace.getWidth() - creditsRect.getWidth()) / 2;
+//        sY += (int) creditsRect.getHeight() * 1.1;
+//
+//        g2d.setFont(creditsFont);
+//        g2d.drawString(CREDITS,sX,sY);
 
-        Rectangle2D greetingsRect = greetingsFont.getStringBounds(GREETINGS,frc);
-        Rectangle2D gameTitleRect = gameTitleFont.getStringBounds(GAME_TITLE,frc);
-        Rectangle2D creditsRect = creditsFont.getStringBounds(CREDITS,frc);
-
-        int sX,sY;
-
-        sX = (int)(menuFace.getWidth() - greetingsRect.getWidth()) / 2;
-        sY = (int)(menuFace.getHeight() / 4);
-
-        g2d.setFont(greetingsFont);
-        g2d.drawString(GREETINGS,sX,sY);
-
-        sX = (int)(menuFace.getWidth() - gameTitleRect.getWidth()) / 2;
-        sY += (int) gameTitleRect.getHeight() * 1.1;//add 10% of String height between the two strings
-
-        g2d.setFont(gameTitleFont);
-        g2d.drawString(GAME_TITLE,sX,sY);
-
-        sX = (int)(menuFace.getWidth() - creditsRect.getWidth()) / 2;
-        sY += (int) creditsRect.getHeight() * 1.1;
-
-        g2d.setFont(creditsFont);
-        g2d.drawString(CREDITS,sX,sY);
+        g2d.drawImage(LOGO, 200, 50, null);
 
 
     }
@@ -184,7 +204,7 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setFont(buttonFont);
 
         int x = (menuFace.width - startButton.width) / 2;
-        int y =(int) ((menuFace.height - startButton.height) * 0.8);
+        int y =(int) ((menuFace.height - startButton.height) * 0.65);
 
         startButton.setLocation(x,y);
 
@@ -206,8 +226,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
             g2d.setColor(tmp);
         }
         else{
-            g2d.draw(startButton);
-            g2d.drawString(START_TEXT,x,y);
+            g2d.draw(startButton); //draw rectangle
+            g2d.drawString(START_TEXT,x,y);//draw text
         }
 
         x = startButton.x;
