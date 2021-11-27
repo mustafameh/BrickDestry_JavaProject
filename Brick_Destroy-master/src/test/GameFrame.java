@@ -1,3 +1,7 @@
+/**
+ * Handles all the Frames/ windows of the program
+ */
+
 /*
  *  Brick Destroy - A simple Arcade video game
  *   Copyright (C) 2017  Filippo Ranza
@@ -30,7 +34,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
     private static final String DEF_TITLE = "Brick Destroy";
 
     private GameBoard gameBoard;
-    private HomeMenu homeMenu;
+    private HomeMenu homeMenu; //home Menu is the first page
 
     private boolean gaming;
 
@@ -43,11 +47,11 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
         gameBoard = new GameBoard(this);
 
-        homeMenu = new HomeMenu(this,new Dimension(450,300));
+        homeMenu = new HomeMenu(this,new Dimension(900,600)); //makes the home menue object and sets its dimesions size
 
         this.add(homeMenu,BorderLayout.CENTER);
 
-        this.setUndecorated(true);
+        this.setUndecorated(true); //used to hide the title bar of home menu
 
 
     }
