@@ -45,6 +45,7 @@ public class Wall {
     private int ballCount;
     private boolean ballLost;
     private int playerScore = 0;
+    private String brickType;
 
 
 
@@ -187,9 +188,21 @@ public class Wall {
         }
         else if(impactWall()){
             /*for efficiency reverse is done into method impactWall
-            * because for every brick program checks for horizontal and vertical impacts
-            */
+             * because for every brick program checks for horizontal and vertical impacts
+             */
             brickCount--;
+            if(brickType.equals("ClayBrick")){
+                playerScore+=100;
+
+            }
+            else if(brickType.equals("CementBrick")){
+                playerScore+=200;
+
+            }
+            else if(brickType.equals("SteelBrick")){
+                playerScore+=300;
+
+            }
         }
         else if(impactBorder()) {
             ball.reverseX();
@@ -208,22 +221,22 @@ public class Wall {
             switch(b.findImpact(ball)) {
                 //Vertical Impact
                 case Brick.UP_IMPACT:
+                    brickType=b.getClass().getSimpleName();
                     ball.reverseY();
-                    playerScore += 10;
                     return b.setImpact(ball.down, Brick.Crack.UP);
                 case Brick.DOWN_IMPACT:
+                    brickType=b.getClass().getSimpleName();
                     ball.reverseY();
-                    playerScore +=10;
                     return b.setImpact(ball.up,Brick.Crack.DOWN);
 
                 //Horizontal Impact
                 case Brick.LEFT_IMPACT:
+                    brickType=b.getClass().getSimpleName();
                     ball.reverseX();
-                    playerScore +=10;
                     return b.setImpact(ball.right,Brick.Crack.RIGHT);
                 case Brick.RIGHT_IMPACT:
+                    brickType=b.getClass().getSimpleName();
                     ball.reverseX();
-                    playerScore +=10;
                     return b.setImpact(ball.left,Brick.Crack.LEFT);
             }
         }
