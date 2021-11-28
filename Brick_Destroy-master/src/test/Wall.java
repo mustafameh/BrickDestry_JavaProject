@@ -44,6 +44,9 @@ public class Wall {
     private int brickCount;
     private int ballCount;
     private boolean ballLost;
+    private int playerScore = 0;
+
+
 
     public Wall(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio, Point ballPos){
 
@@ -206,17 +209,21 @@ public class Wall {
                 //Vertical Impact
                 case Brick.UP_IMPACT:
                     ball.reverseY();
+                    playerScore += 10;
                     return b.setImpact(ball.down, Brick.Crack.UP);
                 case Brick.DOWN_IMPACT:
                     ball.reverseY();
+                    playerScore +=10;
                     return b.setImpact(ball.up,Brick.Crack.DOWN);
 
                 //Horizontal Impact
                 case Brick.LEFT_IMPACT:
                     ball.reverseX();
+                    playerScore +=10;
                     return b.setImpact(ball.right,Brick.Crack.RIGHT);
                 case Brick.RIGHT_IMPACT:
                     ball.reverseX();
+                    playerScore +=10;
                     return b.setImpact(ball.left,Brick.Crack.LEFT);
             }
         }
@@ -308,5 +315,8 @@ public class Wall {
         }
         return  out;
     }
+
+    public int getScore(){return playerScore;}
+    public void setScore(int x){playerScore=x;}
 
 }
