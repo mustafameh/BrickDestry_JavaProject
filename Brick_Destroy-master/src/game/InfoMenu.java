@@ -1,4 +1,4 @@
-package test;
+package game;
 
 import javax.swing.*;
 import javax.swing.JFrame;

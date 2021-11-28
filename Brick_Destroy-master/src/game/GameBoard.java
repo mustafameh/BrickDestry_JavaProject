@@ -15,13 +15,16 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package test;
+package game;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.font.FontRenderContext;
-
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 
 public class GameBoard extends JComponent implements KeyListener,MouseListener,MouseMotionListener {
@@ -33,6 +36,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     private static final int TEXT_SIZE = 30;
     private static final Color MENU_COLOR = new Color(0,255,0);
 
+
+
+    private String txt1 = "";
 
     private static final int DEF_WIDTH = 600;
     private static final int DEF_HEIGHT = 450;
@@ -83,7 +89,21 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
             if(wall.isBallLost()){
                 if(wall.ballEnd()){
                     wall.wallReset();
-                    message = String.format("Player Score : %d",wall.getScore());
+                    message = String.format("Player Scored  : %d",wall.getScore());
+
+
+                    try{
+                        txt1 = "\n" + wall.getScore();
+                        FileWriter fw=new FileWriter("Brick_Destroy-master\\src\\resources\\scoreList.txt",true);
+                        BufferedWriter bw = new BufferedWriter(fw);
+                        bw.write(txt1);
+                        bw.close();
+                    }catch(Exception xyz){System.out.println(xyz);}
+                    System.out.println("Success...");
+
+                wall.setScore(0);
+
+
                 }
                 wall.ballReset();
                 gameTimer.stop();

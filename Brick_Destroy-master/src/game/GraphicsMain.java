@@ -3,15 +3,22 @@
  * @author Mustafa Mehmood
  * @version 1
  */
-package test;
+package game;
 
 import java.awt.*;
+import java.io.IOException;
 
 
 public class GraphicsMain {
 
     public static void main(String[] args){
-        EventQueue.invokeLater(() -> new GameFrame().initialize());
+        EventQueue.invokeLater(() -> {
+            try {
+                new GameFrame().initialize();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 }

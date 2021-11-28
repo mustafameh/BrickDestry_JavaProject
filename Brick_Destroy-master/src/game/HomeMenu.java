@@ -5,7 +5,7 @@
 
 
 
-package test;
+package game;
 
 
 import javax.imageio.ImageIO;
