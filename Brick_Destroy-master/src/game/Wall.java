@@ -44,6 +44,7 @@ public class Wall {
     private int brickCount;
     private int ballCount;
     private boolean ballLost;
+
     private int playerScore = 0;
     private String brickType;
 

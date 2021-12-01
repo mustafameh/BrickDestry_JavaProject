@@ -22,6 +22,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.font.FontRenderContext;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -91,15 +92,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                     wall.wallReset();
                     message = String.format("Player Scored  : %d",wall.getScore());
 
+                //call function to write score on file
+                    Scoring scoring= new Scoring();
+                    scoring.writeScore(wall.getScore());
 
-                    try{
-                        txt1 = "\n" + wall.getScore();
-                        FileWriter fw=new FileWriter("Brick_Destroy-master\\src\\resources\\scoreList.txt",true);
-                        BufferedWriter bw = new BufferedWriter(fw);
-                        bw.write(txt1);
-                        bw.close();
-                    }catch(Exception xyz){System.out.println(xyz);}
-                    System.out.println("Success...");
 
                 wall.setScore(0);
 

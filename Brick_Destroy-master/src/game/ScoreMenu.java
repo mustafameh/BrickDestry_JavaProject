@@ -1,2 +1,4 @@
-package game;public class ScoreMenu {
+package game;
+
+public class ScoreMenu {
 }
