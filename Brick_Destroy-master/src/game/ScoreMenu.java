@@ -27,12 +27,12 @@ public class ScoreMenu extends JFrame implements ActionListener {
 
         text.setIcon(background);
 
-        text.setFont(new Font("Arial", Font.BOLD, 19));
+        text.setFont(new Font("Arial", Font.BOLD, 15));
         text.setForeground(Color.WHITE);
 
         score = new Scoring();
 
-        text.setText("<html>" +score.readScore(new File("Brick_Destroy-master\\src\\resources\\scoreList.txt"),10) +
+        text.setText("<html>"+  "<h1><u>Scores of Last 20 Matches </u></h1><br/>"+score.readScore(new File("Brick_Destroy-master\\src\\resources\\scoreList.txt"),20) +
 
                 "</html>");
 

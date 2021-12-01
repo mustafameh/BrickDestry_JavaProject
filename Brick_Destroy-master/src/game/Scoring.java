@@ -18,7 +18,6 @@ import javax.swing.JPanel;
 public class Scoring {
 
     private String txt1; //txt to be written
-    private String txt2 =""; //txt readed
 
 
 
@@ -91,6 +90,7 @@ public class Scoring {
                 c = (char)randomAccessFile.read();
                 // break when end of the line
                 if(c == '\n'){
+                    builder.append(">/rb<"); //writing reverse of </br> because file is being read back words and then reverced
                     readLines++;
                     if(readLines == lines)
                         break;
@@ -100,7 +100,7 @@ public class Scoring {
             // Since line is read from the last so it
             // is in reverse so use reverse method to make it right
             builder.reverse();
-            txt2 =txt2+ builder.toString();
+            return  builder.toString() ;
 
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
@@ -119,7 +119,7 @@ public class Scoring {
                 }
             }
         }
-        return txt2;
+        return "Error loading file";
     }
 
 
