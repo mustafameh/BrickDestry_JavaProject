@@ -22,7 +22,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.font.FontRenderContext;
 
-x
+
 
 public class GameBoard extends JComponent implements KeyListener,MouseListener,MouseMotionListener {
 
