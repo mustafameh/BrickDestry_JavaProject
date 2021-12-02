@@ -32,7 +32,8 @@ public class ScoreMenu extends JFrame implements ActionListener {
 
         score = new Scoring();
 
-        text.setText("<html>"+  "<h1><u>Scores of Last 20 Matches </u></h1><br/>"+score.readScore(new File("Brick_Destroy-master\\src\\resources\\scoreList.txt"),20) +
+        text.setText("<html>"+  "<h1><u>Scores of Last 20 Matches </u></h1><br/>"
+                +score.readScore(new File("Brick_Destroy-master\\src\\resources\\scoreList.txt"),20) +
 
                 "</html>");
 

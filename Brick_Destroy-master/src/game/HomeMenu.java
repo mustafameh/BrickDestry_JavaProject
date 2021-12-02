@@ -83,9 +83,6 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
         buttonFont = new Font("Monospaced",Font.PLAIN,startButton.height-2);
 
-
-
-
     }
 
 

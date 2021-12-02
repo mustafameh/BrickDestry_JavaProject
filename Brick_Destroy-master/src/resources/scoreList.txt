@@ -18,3 +18,8 @@
 200 by robo
 200 by Mustafa
 700 by RoboCop
+200 by null
+200 by null
+100 by null
+1800 by Mustafa
+3000 by null
