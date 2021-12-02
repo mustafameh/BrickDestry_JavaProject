@@ -5,7 +5,7 @@ import java.awt.geom.Point2D;
 
 public class SpecialWall {
 
-    private static final int LEVELS_COUNT = 4;
+    private static final int LEVELS_COUNT = 2;
 
 
     private static final int CLAY = 1;

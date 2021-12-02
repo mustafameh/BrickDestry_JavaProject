@@ -10,7 +10,7 @@ public class CrystalBrick extends Brick {
     private static final String NAME = "Crystal Brick";
     private static final Color DEF_INNER = new Color(223, 128, 255);
     private static final Color DEF_BORDER = new Color(217, 199, 175);
-    private static final int Crystal_STRENGTH = 4;
+    private static final int Crystal_STRENGTH = 3;
 
     private Crack crack;
     private Shape brickFace;
