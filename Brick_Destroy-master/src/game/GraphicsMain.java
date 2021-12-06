@@ -5,6 +5,8 @@
  */
 package game;
 
+import game.Frames.GameFrame;
+
 import java.awt.*;
 import java.io.IOException;
 
