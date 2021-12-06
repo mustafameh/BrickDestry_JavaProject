@@ -9,4 +9,6 @@ ESC enter/exit pause menu
 ALT+SHITF+F1 open console
 the game automatically pause if the frame loses focus
 
+writing to readme to test out  branching 
+
 Enjoy ;-)
