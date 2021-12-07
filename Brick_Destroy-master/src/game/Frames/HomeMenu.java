@@ -1,8 +1,14 @@
-/** This Class handles all the things that happen in the Home Menu where user can select the Start or Exit
+/**
+ * <h1>Home Menu</h1>
+ * This Class handles all the things that happen in the Home Menu
+ * User Can Select Start to Launch the game.
+ * User Can Select Exit to Close the Application
+ * User Can Select History To check Score History
+ * User Can
+ *
  * @author Mustafa Mehmood
+ * @version 0.1
  */
-
-
 
 
 package game.Frames;
@@ -22,8 +28,8 @@ import java.io.IOException;
 
 public class HomeMenu extends JComponent implements MouseListener, MouseMotionListener {
 
-    BufferedImage BG_IMAGE;
-    BufferedImage LOGO;
+    BufferedImage BG_IMAGE; //stores background image of menu
+    BufferedImage LOGO;     //Stores the logo
 
 
     private static final String START_TEXT = "Start";
@@ -57,6 +63,11 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     private boolean scoreClicked;
 
 
+    /**
+     * This is the constructor of HomeMenu which sets values of some fields and initializes some objects
+     * @param owner  First parameter to constructor takes a Gameframe Object
+     * @param area  Second parameter to constructor takes A Dimension Object used to set size of Frame
+     */
     public HomeMenu(GameFrame owner,Dimension area){
 
         this.setFocusable(true);
@@ -85,12 +96,20 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
-
+    /**
+     * This method is used to cast Graphics g Obj to g2d obj
+     * @param g The only parameter a graphics g obj to paint method
+     */
     public void paint(Graphics g){
         Graphics2D g2d = (Graphics2D) g; //casting graphics g obj as g2d
         drawMenu(g2d);
     }
 
+
+    /**
+     * This Method is used to display menu makeing use of drawText, drawButton, drawBackground Methods
+     * @param g2d First parameter takes in a graphics2D object
+     */
     public void drawMenu(Graphics2D g2d){
 
         drawBackground(g2d);
@@ -118,6 +137,11 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setColor(prevColor);
     }
 
+    /**
+     * This Method is used to display the background image of the HomMenu
+     * @param g2d First parameter takes in a graphics2D object
+     */
+
     private void drawBackground(Graphics2D g2d){
 
 
@@ -131,6 +155,10 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
+    /**
+     * This method is used to display the logo of the game on to the Home Menu
+     * @param g2d First parameter takes in a graphics2D object
+     */
     private void drawText(Graphics2D g2d){
         try{
             LOGO= ImageIO.read(getClass().getResource("/resources/logo.png"));
@@ -146,6 +174,10 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
+    /**
+     * This method is used to display the Start Exit Info And History button on the HomeMenu
+     * @param g2d First parameter takes in a graphics2D object
+     */
     private void drawButton(Graphics2D g2d){
 
         FontRenderContext frc = g2d.getFontRenderContext();
@@ -281,8 +313,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
 
     /**
-     * Starts the Game Board when startButton is clicked exists when menuButton is clicked
-     * @param mouseEvent
+     * Starts the Game Board when startButton is clicked exists when exitButton is clicked launchs infoMenu when info button is clicked and Score Menu when Score button is clicked
+     * @param mouseEvent First parameter as MouseEvent Obj  represents events that occur due to the user interacting with a mouse click
      */
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
@@ -304,8 +336,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     }
 
     /**
-     * Changes the color of buttons
-     * @param mouseEvent
+     * Changes the color of buttons when the buttons are pressed to indicate the event
+     * @param mouseEvent First parameter as MouseEvent Obj  represents events that occur due to the user interacting with a mouse click
      */
     @Override
     public void mousePressed(MouseEvent mouseEvent) {
@@ -328,7 +360,10 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
             repaint(scoreButton.x, scoreButton.y, scoreButton.width+1, scoreButton.height+1);
         }
     }
-
+    /**
+     * Changes the color of buttons when the buttons are released to indicate the event.
+     * @param mouseEvent First parameter as MouseEvent Obj  represents events that occur due to the user interacting with a mouse click.
+     */
     @Override
     public void mouseReleased(MouseEvent mouseEvent) {
         if(startClicked ){
@@ -365,6 +400,10 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
+    /**
+     * This metod checks mouse movement and the postion to invoke setCursor methods.
+     * @param mouseEvent First parameter as MouseEvent Obj  represents events that occur due to the user interacting with a mouse click.
+     */
     @Override
     public void mouseMoved(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();

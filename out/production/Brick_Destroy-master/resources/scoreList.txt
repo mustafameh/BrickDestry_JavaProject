@@ -25,3 +25,5 @@
 3000 by null
 1900 by Robo
 2500 by jlhd
+1000 by Mustafa
+800 by Alpha

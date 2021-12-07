@@ -1,3 +1,10 @@
+/**
+ * <h1>Scoring </h1>
+ * This Class is used to manage Saving, writing and getting the highScore and the Score History
+ *
+ * @author Mustafa Mehmood
+ * @version 0.1
+ */
 package game.OtherEntities;
 
 import java.io.*;
@@ -18,10 +25,6 @@ import javax.swing.JPanel;
 public class Scoring {
 
     private String txt1; //txt to be written
-
-
-
-
 
     public void writeScore(int score){
 
@@ -63,7 +66,7 @@ public class Scoring {
                     bw.close();
                 }catch(Exception xyz){System.out.println(xyz);}
                 System.out.println("Success...");
-
+//getClass().getResource("/resources/brickwall.jpg")
             }
         });
 
@@ -122,7 +125,31 @@ public class Scoring {
         return "Error loading file";
     }
 
+    /**
+     * This method is used
+     * @return returns a string with high score
+     */
+    public String getHighScore() {
+        BufferedReader reader = null;
+        try {
+            FileReader readFile;
+            readFile = new FileReader("\"Brick_Destroy-master\\\\src\\\\resources\\\\highScore.txt\"");
+            reader = new BufferedReader(readFile);
+            return reader.readLine();
+        }
+        catch(Exception e) {
+            return "Nobody:0";
+        }
+        finally {
+            try {
+                if(reader != null)
+                    reader.close();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
 
+    }
 
 
 

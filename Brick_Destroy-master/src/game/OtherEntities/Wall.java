@@ -43,7 +43,13 @@ public class Wall {
 
 
     private Brick[][] levels;
+
+
     private int level;
+
+    public int getLevel() {
+        return level;
+    }
 
     private Point startPoint;
     private int brickCount;
