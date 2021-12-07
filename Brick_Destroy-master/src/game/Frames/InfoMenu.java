@@ -1,3 +1,11 @@
+/**
+ * <h1>Info Menu</h1>
+ * This Class handles all the things that happen in the Info Menu
+ * User Can Select Exit to Close the Frame.
+ *
+ * @author Mustafa Mehmood
+ * @version 0.1
+ */
 package game.Frames;
 
 import javax.swing.*;
@@ -14,6 +22,9 @@ public class InfoMenu extends JFrame implements ActionListener {
     ImageIcon exitIcon = new ImageIcon(getClass().getResource("/resources/exit.png"));
     JButton exitButton;
 
+    /**
+     * Constructor method of InfoMenu which sets values of some fields and initializes some objects creates the frame and displays info
+     */
     public InfoMenu() {
         exitButton= new JButton(exitIcon);
         exitButton.setBounds(700,470,120,60);

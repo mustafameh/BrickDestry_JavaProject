@@ -1,3 +1,11 @@
+/**
+ * <h1>Score Menu</h1>
+ * This Class handles all the displaying of Score
+ * User Can Select Exit to Close the Application
+ *
+ * @author Mustafa Mehmood
+ * @version 0.1
+ */
 package game.Frames;
 
 import game.OtherEntities.Scoring;
@@ -10,6 +18,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+
 public class ScoreMenu extends JFrame implements ActionListener {
 
     JLabel text = new JLabel();
@@ -18,7 +27,9 @@ public class ScoreMenu extends JFrame implements ActionListener {
     ImageIcon exitIcon = new ImageIcon(getClass().getResource("/resources/exit.png"));
     JButton exitButton;
     Scoring score;
-
+    /**
+     * Constructor method of ScoreMenu which sets values of some fields and initializes some objects creates the frame and displays info
+     */
     public ScoreMenu() {
 
         exitButton= new JButton(exitIcon);
