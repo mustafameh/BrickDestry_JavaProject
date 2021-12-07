@@ -126,7 +126,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                     gameTimer.stop();
                     wall.ballReset();
                     wall.wallReset();
-                    if(wall.getLevel() == 5) {
+                    if(wall.getLevel() == 7) {
                         timer.start();
                     }
 
@@ -371,7 +371,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                         gameTimer.stop();
                     }
                     else
-                    if(wall.getLevel() <= 4) {
+                    if(wall.getLevel() <= 6) {
                         gameTimer.start();
                     }else {
                         gameTimer.start();
@@ -399,11 +399,11 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         if(continueButtonRect.contains(p)){
             showPauseMenu = false;
             System.out.println(wall.getLevel());
-            if(wall.getLevel()<=5) {
+            if(wall.getLevel()<=7) {
                 currentLevel = wall.getLevel();
             }
 
-            if(currentLevel == 5)
+            if(currentLevel == 7)
             {
                 timertxt = "03:00";
                 second =0;
