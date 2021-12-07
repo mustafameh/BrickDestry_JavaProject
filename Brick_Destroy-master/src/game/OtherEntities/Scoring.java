@@ -26,6 +26,10 @@ public class Scoring {
 
     private String txt1; //txt to be written
 
+    /**
+     * The Write Score method is Used to write The score of the player on a txt file. It asks for The name to be stored along with their score
+     * @param score Int parameter which is the score that is to be stored
+     */
     public void writeScore(int score){
 
         JFrame frame = new JFrame("User Name Storing");
@@ -77,6 +81,12 @@ public class Scoring {
 
     }
 
+    /**
+     * Used to read the file storing the scores and the names
+     * @param file File Parameter to specify the location of file to be read
+     * @param lines int parameter The number of lines to be read from bottom to top of the file
+     * @return
+     */
     public String readScore(File file, int lines){
         int readLines = 0;
         StringBuilder builder = new StringBuilder();
@@ -123,32 +133,6 @@ public class Scoring {
             }
         }
         return "Error loading file";
-    }
-
-    /**
-     * This method is used
-     * @return returns a string with high score
-     */
-    public String getHighScore() {
-        BufferedReader reader = null;
-        try {
-            FileReader readFile;
-            readFile = new FileReader("\"Brick_Destroy-master\\\\src\\\\resources\\\\highScore.txt\"");
-            reader = new BufferedReader(readFile);
-            return reader.readLine();
-        }
-        catch(Exception e) {
-            return "Nobody:0";
-        }
-        finally {
-            try {
-                if(reader != null)
-                    reader.close();
-            }catch(IOException e){
-                e.printStackTrace();
-            }
-        }
-
     }
 
 

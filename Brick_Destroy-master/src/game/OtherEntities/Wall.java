@@ -1,20 +1,4 @@
-/*
- *  Brick Destroy - A simple Arcade video game
- *   Copyright (C) 2017  Filippo Ranza
- *
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+
 package game.OtherEntities;
 
 import java.awt.*;
@@ -24,6 +8,15 @@ import game.Bricks.Brick;
 import game.Bricks.Crack;
 import game.Balls.RubberBall;
 
+
+
+/**
+ * <h1>Wall </h1>
+ * This Class is used to manage the wall and related entities of Wall
+ *
+ * @author Mustafa Mehmood
+ * @version 0.1
+ */
 
 public class Wall {
 
@@ -47,9 +40,7 @@ public class Wall {
 
     private int level;
 
-    public int getLevel() {
-        return level;
-    }
+
 
     private Point startPoint;
     private int brickCount;
@@ -62,7 +53,14 @@ public class Wall {
     private LevelCreation tempp;
 
 
-
+    /**
+     * onstructor method of InfoMenu which sets and initializes some features of wall and the level
+     * @param drawArea First parameter takes a Rectangle Object used for creation of level
+     * @param brickCount Second parameter  takes an integer to specify number of bricks in level
+     * @param lineCount Third parameter  takes an integer to specify number of bricks in level
+     * @param brickDimensionRatio Fourth parameter takes in double to specify the size
+     * @param ballPos Fifth parameter takes a Point object
+     */
     public Wall(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio, Point ballPos){
 
         this.startPoint = new Point(ballPos);
@@ -97,16 +95,25 @@ public class Wall {
 
     }
 
-
+    /**
+     * Used to create the ball on the wall
+     * @param ballPos Point2D Parameter Specify position
+     */
     private void makeBall(Point2D ballPos){
         ball = new RubberBall(ballPos);
     }
 
+    /**
+     * Used to move player and ball
+     */
     public void move(){
         player.move();
         ball.move();
     }
 
+    /**
+     * used to chect whether impact has been made.
+     */
     public void findImpacts(){
         if(player.impact(ball)){
             ball.reverseY();
@@ -145,6 +152,10 @@ public class Wall {
         }
     }
 
+    /**
+     * Used to check whether impact with wall has been made
+     * @return returns a boolean to specify impact
+     */
     private boolean impactWall(){
         for(Brick b : bricks){
             switch(b.findImpact(ball)) {
@@ -171,24 +182,40 @@ public class Wall {
         }
         return false;
     }
-
+    /**
+     * Used to check whether impact with border has been made
+     * @return returns a boolean to specify impact
+     */
     private boolean impactBorder(){
         Point2D p = ball.getPosition();
         return ((p.getX() < area.getX()) ||(p.getX() > (area.getX() + area.getWidth())));
     }
 
+    /**
+     * getter method for brickcount
+     * @return Returns an integer with brick count
+     */
     public int getBrickCount(){
         return brickCount;
     }
-
+    /**
+     * getter method for ballCount
+     * @return Returns an integer with ball count
+     */
     public int getBallCount(){
         return ballCount;
     }
-
+    /**
+     * Used to check whether ball is lost
+     * @return returns a boolean to specify ball lost
+     */
     public boolean isBallLost(){
         return ballLost;
     }
 
+    /**
+     * Used to reset the ball
+     */
     public void ballReset(){
         player.moveTo(startPoint);
         ball.moveTo(startPoint);
@@ -204,43 +231,86 @@ public class Wall {
         ballLost = false;
     }
 
+    /**
+     * used to reset the wall
+     */
     public void wallReset(){
         for(Brick b : bricks)
             b.repair();
         brickCount = bricks.length;
         ballCount = 3;
     }
+    /**
+     * getter method for level
+     * @return Int specifying the level
+     */
+    public int getLevel() {
+        return level;
+    }
 
+    /**
+     * used to set ball count to 0
+     * @return
+     */
     public boolean ballEnd(){
         return ballCount == 0;
     }
-
+    /**
+     * used to set ball count to 0
+     * @return
+     */
     public boolean isDone(){
         return brickCount == 0;
     }
 
+    /**
+     * method used to go to the next level
+     */
     public void nextLevel(){
         bricks = levels[level++];
         this.brickCount = bricks.length;
     }
 
+    /**
+     * Method used to check level
+     * @return returns a boolean to check whether the level is less than levels length
+     */
     public boolean hasLevel(){
         return level < levels.length;
     }
 
+    /**
+     * Used to set the speed of ball
+     * @param s int parameter to set the ball speed
+     */
     public void setBallXSpeed(int s){
         ball.setXSpeed(s);
     }
-
+    /**
+     * Used to set the speed of ball
+     * @param s int parameter to set the ball speed
+     */
     public void setBallYSpeed(int s){
         ball.setYSpeed(s);
     }
 
+    /**
+     * Used to reset the ball count
+     */
     public void resetBallCount(){
         ballCount = 3;
     }
-    
+
+    /**
+     * Setter method for playerScore
+      * @return Int specifying the score
+     */
     public int getScore(){return playerScore;}
+
+    /**
+     * Used to set Score
+     * @param x Int Parameter used to set score
+     */
     public void setScore(int x){playerScore=x;}
 
 }

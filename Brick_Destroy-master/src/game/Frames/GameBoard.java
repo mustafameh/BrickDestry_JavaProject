@@ -1,20 +1,9 @@
-/*
- *  Brick Destroy - A simple Arcade video game
- *   Copyright (C) 2017  Filippo Ranza
- *
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+/**
+ * This Class Handles creation and management of GameBoard
+ *  * @author Mustafa Mehmood
+ *  * @version 0.1
  */
+
 package game.Frames;
 
 import game.Balls.Ball;
@@ -72,8 +61,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     private DebugConsole debugConsole;
 
 
-
-
+    /**
+     * Constructor method of gameBoard which sets values of some fields , initializes some objects and calls methods required to start game
+     * @param owner First parameter to constructor takes a Jframe Object
+     */
 
     public GameBoard(JFrame owner){
         super();
@@ -146,8 +137,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
     }
 
-
-
+    /**
+     * Initilized GameBoard
+     */
     private void initialize(){
         this.setPreferredSize(new Dimension(DEF_WIDTH,DEF_HEIGHT));
         this.setFocusable(true);
@@ -157,13 +149,19 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         this.addMouseMotionListener(this);
     }
 
+    /**
+     * Initilizes the values for timer
+     */
     public void initiateTimer() {
 
         second =0;
-        minute = 1;
+        minute = 5;
         countdownTimer();
     }
 
+    /**
+     * Handles all the logic for the timer of last level
+     */
     public void countdownTimer() {
 
         timer = new Timer(1000, new ActionListener() {
@@ -201,6 +199,11 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         });
     }
 
+
+    /**
+     * Draws Ball, DrawsPlayer, Draws wall on to the gameBoard
+     * @param g First parameter takes in A Graphics object
+     */
     public void paint(Graphics g){
 
         Graphics2D g2d = (Graphics2D) g;
@@ -224,6 +227,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         Toolkit.getDefaultToolkit().sync();
     }
 
+    /**
+     * sets Color
+     * @param g2d  First parameter takes in A Graphics2D object
+     */
     private void clear(Graphics2D g2d){
         Color tmp = g2d.getColor();
         g2d.setColor(BG_COLOR);
@@ -231,6 +238,11 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setColor(tmp);
     }
 
+    /**
+     * Responsible for drawing bricks on the gameboard
+     * @param brick First parameter takes in A Brick object
+     * @param g2d Second parameter takes in A Graphics2D object
+     */
     private void drawBrick(Brick brick,Graphics2D g2d){
         Color tmp = g2d.getColor();
 
@@ -244,6 +256,11 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setColor(tmp);
     }
 
+    /**
+     * Responsible for drawing ball on the gameboard
+     * @param ball First parameter takes in A Ball object
+     * @param g2d Second parameter takes in A Graphics2D object
+     */
     private void drawBall(Ball ball, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
@@ -258,6 +275,12 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setColor(tmp);
     }
 
+
+    /**
+     * Responsible for drawing bricks on the gameboard
+     * @param p First parameter takes in A player object
+     * @param g2d Second parameter takes in A Graphics2D object
+     */
     private void drawPlayer(Player p, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
@@ -271,11 +294,20 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setColor(tmp);
     }
 
+    /**
+     * Responsible for drawing pause menu and obscuregameBoard on GameBoard
+     * @param g2d parameter takes in A Graphics2D object
+     */
+
     private void drawMenu(Graphics2D g2d){
         obscureGameBoard(g2d);
         drawPauseMenu(g2d);
     }
 
+    /**
+     * obscure Game Board method
+     * @param g2d parameter takes in A Graphics2D object
+     */
     private void obscureGameBoard(Graphics2D g2d){
 
         Composite tmp = g2d.getComposite();
@@ -291,6 +323,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setColor(tmpColor);
     }
 
+    /**
+     * Responsible for drawing pause menu on the GameBoard
+     * @param g2d parameter takes in A Graphics2D object
+     */
     private void drawPauseMenu(Graphics2D g2d){
         Font tmpFont = g2d.getFont();
         Color tmpColor = g2d.getColor();
@@ -348,6 +384,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     public void keyTyped(KeyEvent keyEvent) {
     }
 
+    /**
+     * Handles all the keyPress events
+     * @param keyEvent Takes KeyEvent Object as parameter
+     */
     @Override
     public void keyPressed(KeyEvent keyEvent) {
         switch(keyEvent.getKeyCode()){
@@ -385,12 +425,18 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                 wall.player.stop();
         }
     }
-
+    /**
+     * Handles all the keyRelease events
+     * @param keyEvent Takes KeyEvent Object as parameter
+     */
     @Override
     public void keyReleased(KeyEvent keyEvent) {
         wall.player.stop();
     }
-
+    /**
+     * Handles all the MouseClick events
+     * @param mouseEvent Takes MouseEvent Object as parameter
+     */
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -428,31 +474,51 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
     }
 
+    /**
+     * Handles all the MousePress events
+     * @param mouseEvent Takes MouseEvent Object as parameter
+     */
     @Override
     public void mousePressed(MouseEvent mouseEvent) {
 
     }
-
+    /**
+     * Handles all the MouseRelease events
+     * @param mouseEvent Takes MouseEvent Object as parameter
+     */
     @Override
     public void mouseReleased(MouseEvent mouseEvent) {
 
     }
-
+    /**
+     * Handles all the MouseEnter events
+     * @param mouseEvent Takes MouseEvent Object as parameter
+     */
     @Override
     public void mouseEntered(MouseEvent mouseEvent) {
 
     }
-
+    /**
+     * Handles all the MouseExit events
+     * @param mouseEvent Takes MouseEvent Object as parameter
+     */
     @Override
     public void mouseExited(MouseEvent mouseEvent) {
 
     }
 
+    /**
+     * Handles all the MouseDrag events
+     * @param mouseEvent Takes MouseEvent Object as parameter
+     */
     @Override
     public void mouseDragged(MouseEvent mouseEvent) {
 
     }
-
+    /**
+     * Handles all the MouseMove events
+     * @param mouseEvent Takes MouseEvent Object as parameter
+     */
     @Override
     public void mouseMoved(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -467,6 +533,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         }
     }
 
+    /**
+     * Handles the event where in window is out of focus
+     */
     public void onLostFocus(){
         gameTimer.stop();
         timer.stop();

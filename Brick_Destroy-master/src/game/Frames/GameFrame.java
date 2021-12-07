@@ -1,4 +1,11 @@
 /**
+ * This Class Handles creation and management of GameFrame
+ *  * @author Mustafa Mehmood
+ *  * @version 0.1
+ */
+
+
+/**
  * Handles all the Frames/ windows of the program
  */
 
@@ -36,7 +43,9 @@ public class GameFrame extends JFrame implements WindowFocusListener {
     private HomeMenu homeMenu; //home Menu is the first page
 
     private boolean gaming;
-
+    /**
+     * Constructor method of gameBoard which sets values of some fields , initializes some objects and calls methods required to start game
+     */
     public GameFrame() throws IOException {
         super();
 
@@ -58,6 +67,9 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     }
 
+    /**
+     * Initializes the GameFrame
+     */
     public void initialize(){
         this.setTitle(DEF_TITLE);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -66,6 +78,9 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.setVisible(true);
     }
 
+    /**
+     * Enables the Game Board
+     */
     public void enableGameBoard(){
         this.dispose();
         this.remove(homeMenu);
@@ -77,6 +92,10 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     }
 
+
+    /**
+     * used is setting location of game frame
+     */
     private void autoLocate(){
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (size.width - this.getWidth()) / 2;

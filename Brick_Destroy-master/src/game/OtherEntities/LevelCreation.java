@@ -1,3 +1,10 @@
+/**
+ * <h1>Level Creation</h1>
+ * This Class handles all the things related to creation of levels in the game.
+ * @author Mustafa Mehmood
+ * @version 0.1
+ */
+
 package game.OtherEntities;
 
 import game.Bricks.Brick;
@@ -16,7 +23,13 @@ public class LevelCreation {
     private static final int CEMENT = 3;
     private static final int CRYSTAL =4;
 
-
+    /**
+     * this method is used for creation of Bricks in the game
+     * @param point First parameter to makeBrick takes a Point Object used for creation of brick
+     * @param size  Second parameter to makeBrick takes a Dimention Object used for sizing of brick
+     * @param type  Third parameter to makeBrick takes an int to specify the type of brick to be made
+     * @return Returns a Brick Object
+     */
     private Brick makeBrick(Point point, Dimension size, int type){
         Brick out;
         switch(type){
@@ -38,6 +51,16 @@ public class LevelCreation {
         return  out;
     }
 
+
+    /**
+     * Used to make walls with single type of brick
+     * @param drawArea First parameter to makeSingleTypeLevel takes a Rectangle Object used for creation of level
+     * @param brickCnt Second parameter to makeSingleTypeLevel takes an integer to specify number of bricks in level
+     * @param lineCnt Third parameter to makeSingleTypeLevel takes an integer to specify number of bricks rows in level
+     * @param brickSizeRatio Fourth parameter to makeSingleTypeLevel takes adouble to specify Size ratio of bricks in level
+     * @param type Fifth parameter to makeSingleTypeLevel takes an integer to specify the type of bricks to be used
+     * @return returns a Brick[]
+     */
     private Brick[] makeSingleTypeLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int type){
         /*
           if brickCount is not divisible by line count,brickCount is adjusted to the biggest
@@ -77,7 +100,16 @@ public class LevelCreation {
         return tmp;
 
     }
-
+    /**
+     * Used to make walls with Multiple type of brick
+     * @param drawArea First parameter to makeChessBoardLevel takes a Rectangle Object used for creation of level
+     * @param brickCnt Second parameter to makeChessBoardLevel takes an integer to specify number of bricks in level
+     * @param lineCnt Third parameter to makeChessBoardLevel takes an integer to specify number of bricks rows in level
+     * @param brickSizeRatio Fourth parameter to makeChessBoardLevel takes adouble to specify Size ratio of bricks in level
+     * @param typeA Fifth parameter to makeChessBoardLevel  takes an integer to specify the type of bricks to be used
+     * @param typeB Sixth parameter to makeChessBoardLevel  takes an integer to specify the type of bricks to be used
+     * @return returns a Brick[]
+     */
     private Brick[] makeChessboardLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int typeA, int typeB){
         /*
           if brickCount is not divisible by line count,brickCount is adjusted to the biggest
@@ -123,6 +155,14 @@ public class LevelCreation {
         return tmp;
     }
 
+    /**
+     * Makes levels using single and multi level creation
+     * @param drawArea  First parameter takes a Rectangle Object used for creation of level
+     * @param brickCount Second parameter takes an integer to specify number of bricks in level
+     * @param lineCount  Third parameter  takes an integer to specify number of bricks rows in level
+     * @param brickDimensionRatio Fourth parameter takes adouble to specify Size ratio of bricks in level
+     * @return returns a Brick[][]
+     */
     public Brick[][] makeLevels(Rectangle drawArea,int brickCount,int lineCount,double brickDimensionRatio){
         Brick[][] tmp = new Brick[LEVELS_COUNT][];
         tmp[0] = makeSingleTypeLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY);
