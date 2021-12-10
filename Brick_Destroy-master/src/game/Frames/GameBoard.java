@@ -1,8 +1,4 @@
-/**
- * This Class Handles creation and management of GameBoard
- *  * @author Mustafa Mehmood
- *  * @version 0.1
- */
+
 
 package game.Frames;
 
@@ -19,7 +15,11 @@ import java.awt.event.*;
 import java.awt.font.FontRenderContext;
 import java.text.DecimalFormat;
 
-
+/**
+ * This Class Handles creation and management of GameBoard
+ *  * @author Mustafa Mehmood
+ *  * @version 0.1
+ */
 public class GameBoard extends JComponent implements KeyListener,MouseListener,MouseMotionListener {
 
     private static final String CONTINUE = "Continue";

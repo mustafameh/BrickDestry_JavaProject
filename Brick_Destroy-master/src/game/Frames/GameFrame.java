@@ -1,13 +1,5 @@
-/**
- * This Class Handles creation and management of GameFrame
- *  * @author Mustafa Mehmood
- *  * @version 0.1
- */
 
 
-/**
- * Handles all the Frames/ windows of the program
- */
 
 /*
  *  Brick Destroy - A simple Arcade video game
@@ -34,7 +26,11 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 import java.io.IOException;
 
-
+/**
+ * This Class Handles creation and management of GameFrame
+ *  * @author Mustafa Mehmood
+ *  * @version 0.1
+ */
 public class GameFrame extends JFrame implements WindowFocusListener {
 
     private static final String DEF_TITLE = "Brick Destroy";

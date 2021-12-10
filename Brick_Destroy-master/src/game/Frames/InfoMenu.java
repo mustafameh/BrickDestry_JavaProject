@@ -1,11 +1,4 @@
-/**
- * <h1>Info Menu</h1>
- * This Class handles all the things that happen in the Info Menu
- * User Can Select Exit to Close the Frame.
- *
- * @author Mustafa Mehmood
- * @version 0.1
- */
+
 package game.Frames;
 
 import javax.swing.*;
@@ -14,7 +7,14 @@ import javax.swing.JLabel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ * <h1>Info Menu</h1>
+ * This Class handles all the things that happen in the Info Menu
+ * User Can Select Exit to Close the Frame.
+ *
+ * @author Mustafa Mehmood
+ * @version 0.1
+ */
 public class InfoMenu extends JFrame implements ActionListener {
     JLabel text = new JLabel();
     ImageIcon background = new ImageIcon(getClass().getResource("/resources/brickwall.jpg"));

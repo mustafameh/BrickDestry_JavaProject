@@ -4,7 +4,12 @@ import java.awt.*;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 
-
+/**
+ * <h1>Cement Class </h1>
+ * This Class is used to manage the Brick properties
+ * @author Mustafa Mehmood
+ * @version 0.1
+ */
 public class CementBrick extends Brick {
 
 
@@ -16,7 +21,11 @@ public class CementBrick extends Brick {
     private Crack crack;
     private Shape brickFace;
 
-
+    /**
+     * Constructor method of Brick which sets values of some fields , initializes some objects and calls methods required for brick.
+     * @param point Point obj to set position of brick
+     * @param size Dimension obj to set the size of brick
+     */
     public CementBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,CEMENT_STRENGTH);
         crack = new Crack(this,DEF_CRACK_DEPTH,DEF_STEPS);
@@ -47,6 +56,9 @@ public class CementBrick extends Brick {
         return brickFace;
     }
 
+    /**
+     * Used to update the brick
+     */
     private void updateBrick(){
         if(!super.isBroken()){
             GeneralPath gp = crack.draw();
@@ -55,6 +67,9 @@ public class CementBrick extends Brick {
         }
     }
 
+    /**
+     * Used to repair brick
+     */
     public void repair(){
         super.repair();
         crack.reset();

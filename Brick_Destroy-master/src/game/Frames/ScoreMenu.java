@@ -1,11 +1,4 @@
-/**
- * <h1>Score Menu</h1>
- * This Class handles all the displaying of Score
- * User Can Select Exit to Close the Application
- *
- * @author Mustafa Mehmood
- * @version 0.1
- */
+
 package game.Frames;
 
 import game.OtherEntities.Scoring;
@@ -18,7 +11,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-
+/**
+ * <h1>Score Menu</h1>
+ * This Class handles all the displaying of Score
+ * User Can Select Exit to Close the Application
+ *
+ * @author Mustafa Mehmood
+ * @version 0.1
+ */
 public class ScoreMenu extends JFrame implements ActionListener {
 
     JLabel text = new JLabel();

@@ -1,14 +1,4 @@
-/**
- * <h1>Home Menu</h1>
- * This Class handles all the things that happen in the Home Menu
- * User Can Select Start to Launch the game.
- * User Can Select Exit to Close the Application
- * User Can Select History To check Score History
- * User Can
- *
- * @author Mustafa Mehmood
- * @version 0.1
- */
+
 
 
 package game.Frames;
@@ -25,7 +15,17 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-
+/**
+ * <h1>Home Menu</h1>
+ * This Class handles all the things that happen in the Home Menu
+ * User Can Select Start to Launch the game.
+ * User Can Select Exit to Close the Application
+ * User Can Select History To check Score History
+ * User Can
+ *
+ * @author Mustafa Mehmood
+ * @version 0.1
+ */
 public class HomeMenu extends JComponent implements MouseListener, MouseMotionListener {
 
     BufferedImage BG_IMAGE; //stores background image of menu

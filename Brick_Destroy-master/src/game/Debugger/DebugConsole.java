@@ -25,7 +25,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-
+/**
+ * <h1>DebugConsole </h1>
+ * This Class is used to manage the Debug Panel
+ *
+ * @author Mustafa Mehmood
+ * @version 0.1
+ */
 public class DebugConsole extends JDialog implements WindowListener{
 
     private static final String TITLE = "Debug Console";
@@ -36,7 +42,12 @@ public class DebugConsole extends JDialog implements WindowListener{
     private GameBoard gameBoard;
     private Wall wall;
 
-
+    /**
+     * Constructor method of DebugPanel which sets values of some fields , initializes some objects and calls methods required to start DebugConsole
+     * @param owner First Parameter of constructor takes in the JFrame Object
+     * @param wall  Second Parameter takes in the wall object
+     * @param gameBoard Third Parameter Takes in the GameBoard object
+     */
     public DebugConsole(JFrame owner, Wall wall, GameBoard gameBoard){
 
         this.wall = wall;
@@ -51,6 +62,9 @@ public class DebugConsole extends JDialog implements WindowListener{
         this.pack();
     }
 
+    /**
+     * Used to initialize the DebugConsole
+     */
     private void initialize(){
         this.setModal(true);
         this.setTitle(TITLE);
@@ -60,7 +74,9 @@ public class DebugConsole extends JDialog implements WindowListener{
         this.setFocusable(true);
     }
 
-
+    /**
+     * Used to set the location of Debug Console on the screen.
+     */
     private void setLocation(){
         int x = ((owner.getWidth() - this.getWidth()) / 2) + owner.getX();
         int y = ((owner.getHeight() - this.getHeight()) / 2) + owner.getY();

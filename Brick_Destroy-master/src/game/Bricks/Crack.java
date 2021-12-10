@@ -5,7 +5,12 @@ import game.Bricks.Brick;
 import java.awt.*;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
-
+/**
+ * <h1>Crack </h1>
+ * This Class is used to manage the Crack properties
+ * @author Mustafa Mehmood
+ * @version 0.1
+ */
 public class Crack {
 
     private static final int CRACK_SECTIONS = 3;
@@ -25,7 +30,12 @@ public class Crack {
     private int crackDepth;
     private int steps;
 
-
+    /**
+     * Constructor method for Crack class used to initialize some properties for functioning of Crack
+     * @param brick Brick Obj to specify the brick needed to be cracked
+     * @param crackDepth Int specifuing the crack depth
+     * @param steps Int Specifying the steps
+     */
     public Crack(Brick brick, int crackDepth, int steps) {
         this.brick = brick;
 
@@ -35,16 +45,27 @@ public class Crack {
 
     }
 
-
+    /**
+     * Used for drawing
+     * @return generalpath obj
+     */
     public GeneralPath draw() {
 
         return crack;
     }
 
+    /**
+     * Used to reset the carck
+     */
     public void reset() {
         crack.reset();
     }
 
+    /**
+     * Used to make the crack in brick
+     * @param point Point2D obj to specify the location of crack
+     * @param direction int to specify direction for crack
+     */
     protected void makeCrack(Point2D point, int direction) {
         Rectangle bounds = brick.brickFace.getBounds();
 
@@ -85,6 +106,11 @@ public class Crack {
         }
     }
 
+    /**
+     * Used to make the crack in brick
+     * @param start Point obj for crack
+     * @param end point obj for crack
+     */
     protected void makeCrack(Point start, Point end) {
 
         GeneralPath path = new GeneralPath();
@@ -116,11 +142,23 @@ public class Crack {
         crack.append(path, true);
     }
 
+    /**
+     * Used for random in bounds
+     * @param bound Int
+     * @return int
+     */
     private int randomInBounds(int bound) {
         int n = (bound * 2) + 1;
         return Brick.getRnd().nextInt(n) - bound;
     }
 
+    /**
+     * Used to check if in Middle
+     * @param i Int
+     * @param steps Int
+     * @param divisions Int
+     * @return boolean
+     */
     private boolean inMiddle(int i, int steps, int divisions) {
         int low = (steps / divisions);
         int up = low * (divisions - 1);
@@ -128,6 +166,12 @@ public class Crack {
         return (i > low) && (i < up);
     }
 
+    /**
+     * used for jumps in crack
+     * @param bound Int
+     * @param probability Double
+     * @return Int
+     */
     private int jumps(int bound, double probability) {
 
         if (Brick.getRnd().nextDouble() > probability)
@@ -136,6 +180,13 @@ public class Crack {
 
     }
 
+    /**
+     * Used to make random points in crack
+     * @param from Point obj
+     * @param to Point obj
+     * @param direction Int
+     * @return point
+     */
     private Point makeRandomPoint(Point from, Point to, int direction) {
 
         Point out = new Point();

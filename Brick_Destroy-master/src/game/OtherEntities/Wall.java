@@ -10,6 +10,7 @@ import game.Balls.RubberBall;
 
 
 
+
 /**
  * <h1>Wall </h1>
  * This Class is used to manage the wall and related entities of Wall
@@ -17,7 +18,6 @@ import game.Balls.RubberBall;
  * @author Mustafa Mehmood
  * @version 0.1
  */
-
 public class Wall {
 
     private static final int LEVELS_COUNT = 7;

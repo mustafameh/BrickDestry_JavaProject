@@ -25,7 +25,13 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 
-
+/**
+ * <h1>DebugPanel </h1>
+ * This Class is used to manage the Debug Panel
+ *
+ * @author Mustafa Mehmood
+ * @version 0.1
+ */
 public class DebugPanel extends JPanel {
 
     private static final Color DEF_BKG = Color.WHITE;
@@ -39,6 +45,10 @@ public class DebugPanel extends JPanel {
 
     private Wall wall;
 
+    /**
+     * Constructor method of DebugPanel which sets values of some fields , initializes some objects and calls methods required to start DebugPanel.
+     * @param wall First Parameter of constructor takes in Wall object
+     */
     public DebugPanel(Wall wall){
 
         this.wall = wall;
@@ -59,17 +69,33 @@ public class DebugPanel extends JPanel {
 
     }
 
+    /**
+     * Used to initilizze the debug Panel
+     */
     private void initialize(){
         this.setBackground(DEF_BKG);
         this.setLayout(new GridLayout(2,2));
     }
 
+    /**
+     * Used to make buttons in the Debug Panel
+     * @param title Talkes String to set as button title
+     * @param e Action Listener
+     * @return Returns a JButton object
+     */
     private JButton makeButton(String title, ActionListener e){
         JButton out = new JButton(title);
         out.addActionListener(e);
         return  out;
     }
 
+    /**
+     * Used to make the Slider in the Debug panel
+     * @param min Int used to set the minimum value of slider
+     * @param max Int used to set the max value of slider
+     * @param e Change Listener
+     * @return Returns the JSlider Object for panel
+     */
     private JSlider makeSlider(int min, int max, ChangeListener e){
         JSlider out = new JSlider(min,max);
         out.setMajorTickSpacing(1);
@@ -79,6 +105,11 @@ public class DebugPanel extends JPanel {
         return out;
     }
 
+    /**
+     * Used to set ball speed
+     * @param x Int x speed of ball
+     * @param y Int y speed of ball
+     */
     public void setValues(int x,int y){
         ballXSpeed.setValue(x);
         ballYSpeed.setValue(y);

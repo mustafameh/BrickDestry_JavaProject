@@ -23,7 +23,12 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
-
+/**
+ * <h1>SteelBrick Class </h1>
+ * This Class is used to manage the Brick properties
+ * @author Mustafa Mehmood
+ * @version 0.1
+ */
 public class SteelBrick extends Brick {
 
     private static final String NAME = "Steel Brick";
@@ -35,6 +40,11 @@ public class SteelBrick extends Brick {
     private Random rnd;
     private Shape brickFace;
 
+    /**
+     * Constructor method of Brick which sets values of some fields , initializes some objects and calls methods required for brick.
+     * @param point Point obj to set position of brick
+     * @param size Dimension obj to set the size of brick
+     */
     public SteelBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,STEEL_STRENGTH);
         rnd = new Random();
@@ -52,6 +62,12 @@ public class SteelBrick extends Brick {
         return brickFace;
     }
 
+    /**
+     * Used to set the Impact for brick
+     * @param point Point2D obj for the brick position
+     * @param dir Int obj
+     * @return
+     */
     public  boolean setImpact(Point2D point , int dir){
         if(super.isBroken())
             return false;

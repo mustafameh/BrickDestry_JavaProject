@@ -25,13 +25,21 @@ import java.awt.geom.Point2D;
 
 public class RubberBall extends Ball {
 
-
+    /**
+     * <h1>RubberBal Class </h1>
+     * This Class is used to manage the ball properties
+     * @author Mustafa Mehmood
+     * @version 0.1
+     */
     private static final int DEF_RADIUS = 15;
     private static final Color DEF_INNER_COLOR = new Color(255, 219, 88);
     private static final Color DEF_BORDER_COLOR = DEF_INNER_COLOR.darker().darker();
 
 
-
+    /**
+     * Constructor for rubberBall used to initialize the rubber ball
+     * @param center point2D parameter to constructor
+     */
     public RubberBall(Point2D center){
         super(center,DEF_RADIUS,DEF_RADIUS,DEF_INNER_COLOR,DEF_BORDER_COLOR);
         this.setSpeed(3,-3);
