@@ -111,4 +111,12 @@ public class Player {
         ballPoint.setLocation(p);
         playerFace.setLocation(ballPoint.x - (int)playerFace.getWidth()/2,ballPoint.y);
     }
+    public int getMoveAmount(){
+        return moveAmount;
+    }
+
+	public void setMoveAmount(int i) {
+		moveAmount = i;
+		
+	}
 }
