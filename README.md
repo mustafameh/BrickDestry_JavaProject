@@ -42,7 +42,7 @@ Java docs were added for each and every class
 
 As part of refactoring Large classess like wall and brick were broken into smaller classes to make them easier to manage and to reduce decoupling
 Many Variables and fucntion names were also changed for easier readablitly 
-Classess were arrnaged in proper packages 
+Classes were arranged in proper packages 
 The project was converted to maven so adding the dependencies becomes easier 
  
 
